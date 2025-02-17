@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Graduation",
+    "author": "Kanye West",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/8ddd1959a2bef460a5149b3e0cf5e18a.jpg",
+    "price": 15.99
+  },
+  {
+    "id": 2,
+    "title": "My Beautiful Dark Twisted Fantasy",
+    "author": "Kanye West",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/f5afd8fe052b452c999b657664cae99f.jpg",
+    "price": 20.49
+  },
+  {
+    "id": 3,
+    "title": "Late Registration",
+    "author": "Kanye West",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/9c0e7886d750a519c9ec63c30434b483.jpg",
+    "price": 18.99
+  },
+  {
+    "id": 4,
+    "title": "HOPE ON THE STREET VOL.1",
+    "author": "j-hope",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/28d0ab355f6fb60ad60e2a3d8c8bb4b1.jpg",
+    "price": 12.79
+  },
+  {
+    "id": 5,
+    "title": "The College Dropout",
+    "author": "Kanye West",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/61d5e94c9aa712b29e283325bc5ae87f.jpg",
+    "price": 19.59
+  },
+  {
+    "id": 6,
+    "title": "Madvillainy",
+    "author": "Madvillain",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/893fce336634c600b2bab31de7bbc9bd.jpg",
+    "price": 17.29
+  },
+  {
+    "id": 7,
+    "title": "More Life",
+    "author": "Drake",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/434a922ecca5474f1f9d6bbcc3a1050c.jpg",
+    "price": 25.99
+  },
+  {
+    "id": 8,
+    "title": "?",
+    "author": "XXXTENTACION",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/44256a0e77e7c3022be226b69d1f3c2e.jpg",
+    "price": 16.89
+  },
+  {
+    "id": 9,
+    "title": "808s & Heartbreak",
+    "author": "Kanye West",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/a10a67180b666ce93a3bb79c49faca0b.jpg",
+    "price": 14.99
+  },
+  {
+    "id": 10,
+    "title": "For All the Dogs",
+    "author": "Drake",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/affa1d5df8b9141db4078541fdb3663f.jpg",
+    "price": 22.49
+  },
+  {
+    "id": 11,
+    "title": "Birds in the Trap Sing McKnight",
+    "author": "Travis Scott",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/2355ddd5cc081cf633037ae0dc9cfc49.jpg",
+    "price": 21.79
+  },
+  {
+    "id": 12,
+    "title": "WE DON'T TRUST YOU",
+    "author": "Future",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/edba4e87b2ce983ee136723a809b0a0a.jpg",
+    "price": 13.49
+  },
+  {
+    "id": 13,
+    "title": "Hope World",
+    "author": "j-hope",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/57bd836e9bda76409400ce783e0fc7c4.jpg",
+    "price": 11.99
+  },
+  {
+    "id": 14,
+    "title": "Man on the Moon II: The Legend of Mr. Rager",
+    "author": "Kid Cudi",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/686cff186b134340827fa08930c04ff1.jpg",
+    "price": 20.39
+  },
+  {
+    "id": 15,
+    "title": "on the street (with J. Cole)",
+    "author": "j-hope",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/8b08fbd550bfada148da7224c0c57d9f.jpg",
+    "price": 10.59
+  },
+  {
+    "id": 16,
+    "title": "Illmatic",
+    "author": "Nas",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/8dce63c224a643b78b39caeb27aadf8b.jpg",
+    "price": 23.19
+  },
+  {
+    "id": 17,
+    "title": "#SantanaWorld (+)",
+    "author": "Tay-K",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/a113a5658d6a1e067f99102b1e239648.jpg",
+    "price": 15.69
+  },
+  {
+    "id": 18,
+    "title": "2001",
+    "author": "Dr. Dre",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/d8a6417d7c1d30ed4a211bdceb0e8cf9.jpg",
+    "price": 24.89
+  },
+  {
+    "id": 19,
+    "title": "MORE",
+    "author": "j-hope",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/871ae00c0f96a04e010da6ac7c64ebfd.jpg",
+    "price": 9.99
+  },
+  {
+    "id": 20,
+    "title": "Man on the Moon: The End of Day",
+    "author": "Kid Cudi",
+    "cover": "https://lastfm.freetls.fastly.net/i/u/300x300/8ca0fd6e84a14317a7d21eaebc81320a.jpg",
+    "price": 19.59
+  }
+]

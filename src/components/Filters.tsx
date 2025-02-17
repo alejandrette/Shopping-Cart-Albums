@@ -5,7 +5,7 @@ interface FiltersProps {
   };
   authorUnique: string[];
   onAuthorChange: (value: string) => void;
-  onMaxPriceChange: (value: string) => void;
+  onMaxPriceChange: (value: number) => void;
 }
 
 export function Filters({ filters, onAuthorChange, onMaxPriceChange, authorUnique }: FiltersProps) {
@@ -29,7 +29,7 @@ export function Filters({ filters, onAuthorChange, onMaxPriceChange, authorUniqu
         className="w-full max-w-sm h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-blue-500 
                dark:bg-gray-700 dark:accent-blue-400"
         value={filters.maxPrice}
-        onChange={(e) => onMaxPriceChange(e.target.value)}
+        onChange={(e) => onMaxPriceChange(Number(e.target.value))}
       />
     </div>
   )

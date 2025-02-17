@@ -22,7 +22,7 @@ export function useFilters(albums: Album[] = []) {
   const filteredAlbums = useMemo(() => (
     albums?.filter(album => (
       album.price <= filters.maxPrice &&
-      (album.author === filters.author || album.author === 'all')
+      (filters.author === "all" || album.author === filters.author)
     ))
   ), [albums, filters])
 
@@ -40,7 +40,7 @@ export function useFilters(albums: Album[] = []) {
     }))
   }
  
-  console.log(filteredAlbums)
+  const authorUnique: string[] = [...new Set(albums?.map(album => album.author))]
 
-  return { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange }
+  return { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique }
 }

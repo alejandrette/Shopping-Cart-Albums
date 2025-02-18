@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAlbums } from "../services/albums";
 import { Album } from "../types/album";
+import { getAlbums } from "../services/albums";
 
 export function useAlbums() {
   const [albums, setAlbums] = useState<Album[]>([])

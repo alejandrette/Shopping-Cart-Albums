@@ -1,11 +1,11 @@
-import { Header } from './components/Header'
-import { useAlbums } from './hooks/useAlbums'
-import { AlbumList } from './components/AlbumList'
-import { Filters } from './components/Filters'
-import { useFilters } from './hooks/useFilters'
 import { useState } from 'react'
 import { Album } from './types/album'
 import { CartItem } from './types/cart'
+import { useAlbums } from './hooks/useAlbums'
+import { useFilters } from './hooks/useFilters'
+import { Header } from './components/Header'
+import { Filters } from './components/Filters'
+import { AlbumList } from './components/AlbumList'
 
 export default function App() {
   const { albums, loading, error } = useAlbums()

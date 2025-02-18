@@ -3,13 +3,17 @@ import { FaCartShopping } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { TiDelete } from "react-icons/ti";
 import { CartItem } from "../types/cart";
+import { GoPlus } from "react-icons/go";
+import { RiSubtractFill } from "react-icons/ri";
 
 interface HeaderProps {
   carts: CartItem[];
   deleteToCart: (value: CartItem) => void;
+  updatePlusCart: (value: CartItem) => void;
+  updateSubtractCart: (value: CartItem) => void;
 }
 
-export function Header({ carts, deleteToCart }: HeaderProps) {
+export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart }: HeaderProps) {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -43,6 +47,11 @@ export function Header({ carts, deleteToCart }: HeaderProps) {
                     <img src={cart.cover} alt={cart.title} className="w-10" />
                     <span className="ml-3">{cart.title} - ${cart.price}</span>
                   </div>
+                  <div className="flex items-center pr-2">
+                    <button onClick={() => updatePlusCart(cart)}><GoPlus /></button>
+                    <span className="px-1">{cart.quantity}</span>
+                    <button onClick={() => updateSubtractCart(cart)} disabled={cart.quantity <= 1}><RiSubtractFill /></button>
+                  </div>
                   <TiDelete 
                     className="w-5 text-red-500 cursor-pointer" 
                     onClick={() => deleteToCart(cart)}  
@@ -51,7 +60,7 @@ export function Header({ carts, deleteToCart }: HeaderProps) {
               ))
             )}
           </ul>
-          <button className="mt-3 w-full bg-red-500 text-white py-2 rounded">Pagar</button>
+          <button className="mt-3 w-full bg-red-500 text-white py-2 rounded">Total to pay $</button>
         </div>
       )}
     </header>

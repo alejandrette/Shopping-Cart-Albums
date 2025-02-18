@@ -4,4 +4,5 @@ export interface Album {
   author: string;
   cover: string;
   price: number;
+  quantity: number
 }

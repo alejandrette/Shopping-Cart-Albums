@@ -13,6 +13,7 @@ export default function App() {
   const [carts, setCarts] = useState<Album[]>([])
 
   const addToCart = (item: Album) => {
+    item.quantity = 1
     setCarts(prevAlbum => [...prevAlbum, item])
   }
 
@@ -20,11 +21,27 @@ export default function App() {
     setCarts(prevCart => prevCart.filter(i => i !== item))
   }
 
+  const updatePlusCart = (item: CartItem) => {
+    const updateCart: Album[] = [...carts]
+    const index = carts.findIndex(cart => cart.id === item.id)
+    updateCart[index].quantity++
+    setCarts(updateCart)
+  }
+
+  const updateSubtractCart = (item: CartItem) => {
+    const updateCart: Album[] = [...carts]
+    const index = carts.findIndex(cart => cart.id === item.id)
+    updateCart[index].quantity--
+    setCarts(updateCart)
+  }
+
   return (
     <>
       <Header
         carts={carts}
         deleteToCart={deleteToCart}
+        updatePlusCart={updatePlusCart}
+        updateSubtractCart={updateSubtractCart}
       />
       {error && <div className="text-red-500 text-center text-2xl">Error: {error}</div>}
       <Filters 

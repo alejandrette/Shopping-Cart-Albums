@@ -16,7 +16,8 @@ interface HeaderProps {
 export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart }: HeaderProps) {
   const [open, setOpen] = useState<boolean>(false);
   const isEmpty: boolean = useMemo(() => carts.length === 0, [carts]) 
-  const cartTotal: number = useMemo(() => carts.reduce((total, acc) => total + (acc.quantity * acc.price), 0), [carts])
+  const cartTotal: number = useMemo(() => 
+    carts.reduce((acc, item) => acc + (item.quantity * item.price), 0), [carts]);  
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">

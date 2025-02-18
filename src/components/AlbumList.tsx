@@ -5,6 +5,9 @@ import { Album } from "../types/album";
 interface AlbumListProps {
   albums: Album[];
   loading: boolean;
+  addToCart: (value: Album) => void;
+  deleteToCart: (value: Album) => void;
+  carts: Album[];
 }
 
 const ITEMS_PER_PAGE = 9; // Número de álbumes por página
@@ -21,7 +24,6 @@ export function AlbumList({ albums, loading, addToCart, deleteToCart, carts }: A
   const totalPages = Math.ceil(albums.length / ITEMS_PER_PAGE);
 
   
-
   return (
     <>
       {loading 

@@ -2,26 +2,15 @@ import { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { TiDelete } from "react-icons/ti";
-
-// Definir la interfaz de los productos en el carrito (puede ser un objeto Album)
-interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-  cover: string;
-}
+import { CartItem } from "../types/cart";
 
 interface HeaderProps {
   carts: CartItem[];
+  deleteToCart: (value: CartItem) => void;
 }
 
 export function Header({ carts, deleteToCart }: HeaderProps) {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(carts);
-
-  // const delteAlbumFromCart = () => {
-
-  // }
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">

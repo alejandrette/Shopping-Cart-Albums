@@ -5,17 +5,18 @@ import { Filters } from './components/Filters'
 import { useFilters } from './hooks/useFilters'
 import { useState } from 'react'
 import { Album } from './types/album'
+import { CartItem } from './types/cart'
 
 export default function App() {
   const { albums, loading, error } = useAlbums()
   const { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique } = useFilters(albums)
   const [carts, setCarts] = useState<Album[]>([])
 
-  const addToCart = (item) => {
+  const addToCart = (item: Album) => {
     setCarts(prevAlbum => [...prevAlbum, item])
   }
 
-  const deleteToCart = (item) => {
+  const deleteToCart = (item: CartItem) => {
     setCarts(prevCart => prevCart.filter(i => i !== item))
   }
 

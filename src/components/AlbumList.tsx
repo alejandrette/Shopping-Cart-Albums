@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { Loader } from "./Loader";
-
-interface Album {
-  id: number;
-  title: string;
-  author: string;
-  cover: string;
-  price: number;
-}
+import { Album } from "../types/album";
 
 interface AlbumListProps {
   albums: Album[];
   loading: boolean;
+  setCarts: (value: Album[] | ((prev: Album[]) => Album[])) => void;
 }
 
 const ITEMS_PER_PAGE = 9; // Número de álbumes por página
 
-export function AlbumList({ albums, loading }: AlbumListProps) {
+export function AlbumList({ albums, loading, setCarts }: AlbumListProps) {
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -26,6 +20,11 @@ export function AlbumList({ albums, loading }: AlbumListProps) {
   const currentAlbums = albums.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(albums.length / ITEMS_PER_PAGE);
+
+  const addAlbumCart = (album: Album) => {
+    setCarts(prevAlbum => [...prevAlbum, album])
+    console.log(album)
+  }
 
   return (
     <>
@@ -46,7 +45,12 @@ export function AlbumList({ albums, loading }: AlbumListProps) {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-3xl font-bold text-gray-900 dark:text-white">${album.price}</span>
-                      <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                      <button 
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        onClick={() => addAlbumCart(album)}
+                      >
+                        Add to cart
+                      </button>
                     </div>
                   </div>
                 </div>

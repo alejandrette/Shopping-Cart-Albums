@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAlbums } from "../services/albums";
-
-interface Album {
-  id: number;
-  title: string;
-  author: string;
-  cover: string;
-  price: number;
-}
+import { Album } from "../types/album";
 
 export function useAlbums() {
   const [albums, setAlbums] = useState<Album[]>([])

@@ -1,10 +1,4 @@
-interface Album {
-  id: number;
-  title: string;
-  author: string;
-  cover: string;
-  price: number;
-}
+import { Album } from "../types/album";
 
 export const getAlbums = async (): Promise<Album[]> => {
   try {

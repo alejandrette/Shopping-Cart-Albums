@@ -1,12 +1,4 @@
-interface FiltersProps {
-  filters: {
-    author: string;
-    maxPrice: number;
-  };
-  authorUnique: string[];
-  onAuthorChange: (value: string) => void;
-  onMaxPriceChange: (value: number) => void;
-}
+import { FiltersProps } from "../types/filters";
 
 export function Filters({ filters, onAuthorChange, onMaxPriceChange, authorUnique }: FiltersProps) {
   return (

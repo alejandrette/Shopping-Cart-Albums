@@ -1,17 +1,6 @@
 import { useMemo, useState } from "react"
-
-interface Album {
-  id: number;
-  title: string;
-  author: string;
-  cover: string;
-  price: number;
-}
-
-interface Filters {
-  author: string;
-  maxPrice: number;
-}
+import { Album } from "../types/album";
+import { Filters } from "../types/filters";
 
 export function useFilters(albums: Album[] = []) {
   const [filters, setFilters] = useState<Filters>({
@@ -27,14 +16,14 @@ export function useFilters(albums: Album[] = []) {
   ), [albums, filters])
 
   const handleAuthorChange = (value: string) => {
-    setFilters(prevFilter =>({
+    setFilters(prevFilter => ({
       ...prevFilter,
       author: value
     }))
   }
 
   const handleMaxPriceChange = (value: number) => {
-    setFilters(prevFilter =>({
+    setFilters(prevFilter => ({
       ...prevFilter,
       maxPrice: value
     }))

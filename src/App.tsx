@@ -11,10 +11,19 @@ export default function App() {
   const { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique } = useFilters(albums)
   const [carts, setCarts] = useState<Album[]>([])
 
+  const addToCart = (item) => {
+    setCarts(prevAlbum => [...prevAlbum, item])
+  }
+
+  const deleteToCart = (item) => {
+    setCarts(prevCart => prevCart.filter(i => i !== item))
+  }
+
   return (
     <>
       <Header
         carts={carts}
+        deleteToCart={deleteToCart}
       />
       {error && <div className="text-red-500 text-center text-2xl">Error: {error}</div>}
       <Filters 
@@ -26,7 +35,9 @@ export default function App() {
       <AlbumList 
         albums={filteredAlbums}
         loading={loading}
-        setCarts={setCarts}
+        addToCart={addToCart}
+        deleteToCart={deleteToCart}
+        carts={carts}
       />
     </>
   )

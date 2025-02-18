@@ -1,21 +1,27 @@
 import { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
+import { TiDelete } from "react-icons/ti";
 
 // Definir la interfaz de los productos en el carrito (puede ser un objeto Album)
 interface CartItem {
   id: number;
   title: string;
   price: number;
+  cover: string;
 }
 
 interface HeaderProps {
   carts: CartItem[];
 }
 
-export function Header({ carts }: HeaderProps) {
+export function Header({ carts, deleteToCart }: HeaderProps) {
   const [open, setOpen] = useState<boolean>(false);
   console.log(carts);
+
+  // const delteAlbumFromCart = () => {
+
+  // }
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">
@@ -30,17 +36,29 @@ export function Header({ carts }: HeaderProps) {
       </div>
 
       {open && (
-        <div className="absolute right-5 mt-20 w-64 bg-gray-800 shadow-lg rounded-lg p-4 border z-20">
+        <div className="absolute top-full right-5 w-80 max-h-80 bg-gray-800 shadow-lg rounded-lg p-4 border z-20">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold mb-3">Shopping Cart</h3>
             <button className="mb-3" onClick={() => setOpen(!open)}><IoMdClose /></button>
           </div>
-          <ul>
+          <ul className="max-h-52 overflow-auto">
             {carts.length === 0 ? (
               <span>The cart is empty</span>
             ) : (
               carts.map(cart => (
-                <li key={cart.id} className="border-b py-2">{cart.title} - ${cart.price}</li>
+                <li 
+                  key={cart.id}
+                  className="flex items-center justify-between border-b py-2"
+                >
+                  <div className="flex items-center">
+                    <img src={cart.cover} alt={cart.title} className="w-10" />
+                    <span className="ml-3">{cart.title} - ${cart.price}</span>
+                  </div>
+                  <TiDelete 
+                    className="w-5 text-red-500 cursor-pointer" 
+                    onClick={() => deleteToCart(cart)}  
+                  />
+                </li>
               ))
             )}
           </ul>

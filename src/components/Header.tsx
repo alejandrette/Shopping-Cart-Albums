@@ -21,7 +21,7 @@ export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">
-      <div className="absolute inset-0 bg-[url('../../bg-header.png')] bg-cover bg-no-repeat bg-center opacity-20"></div>
+      <div className="absolute inset-0 bg-[url('/bg-header.png')] bg-cover bg-no-repeat bg-center opacity-20"></div>
       
       <div className="relative z-10 text-3xl md:pl-10">SoundWave <span className="text-orange-500 font-bold">Store</span></div>
       

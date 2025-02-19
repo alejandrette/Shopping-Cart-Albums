@@ -10,7 +10,7 @@ interface AlbumListProps {
   carts: Album[];
 }
 
-const ITEMS_PER_PAGE = 9; // Número de álbumes por página
+const ITEMS_PER_PAGE = 6; // Número de álbumes por página
 
 export function AlbumList({ albums, loading, addToCart, deleteToCart, carts }: AlbumListProps) {
 
@@ -29,12 +29,12 @@ export function AlbumList({ albums, loading, addToCart, deleteToCart, carts }: A
       {loading 
         ? <Loader />
         : (
-          <div className="flex flex-col items-center mx-auto max-w-6xl mt-6 mb-6">
-            <div className="grid grid-cols-3 gap-6 justify-center w-full">
+          <div className="flex flex-col items-center mx-auto max-w-6xl mt-6 mb-6 px-4">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center place-items-center">
               {currentAlbums.map(album => (
-                <div className="w-full max-w-sm border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700" key={album.id}>
+                <div className="w-full max-w-sm border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col min-h-[450px] h-full" key={album.id}>
                   <a href={`https://www.last.fm/es/music/${album.author}/${album.title}`} target="_blank">
-                    <img className="p-8 rounded-t-lg" src={album.cover} alt="product image" />
+                    <img className="p-8 rounded-t-lg" src={album.cover} alt={album.title} />
                   </a>
                   <div className="px-5 pb-5">
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{album.title}</h5>

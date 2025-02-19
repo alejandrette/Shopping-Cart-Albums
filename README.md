@@ -6,7 +6,7 @@ Bienvenido a **Shopping Cart Albums**, una app donde puedes explorar y agregar �
 
 ¡Prueba la aplicación en vivo! Haz clic en el siguiente enlace para acceder a la demo de la tienda de álbumes:
 
-🔗 [Demo en vivo](http://example.com/ "Title")
+🔗 [Demo en vivo](https://soundwavestore.netlify.app/ "Title")
 
 ## ⚙️ Tecnologías Utilizadas
 

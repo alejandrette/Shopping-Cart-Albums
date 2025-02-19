@@ -1,23 +1,13 @@
-import { useMemo, useState } from "react";
-import { CartItem } from "../types/cart";
+import { useState } from "react";
+import { CartHeader } from "../types/cart";
 import { GoPlus } from "react-icons/go";
 import { TiDelete } from "react-icons/ti";
 import { IoMdClose } from "react-icons/io";
 import { RiSubtractFill } from "react-icons/ri";
 import { FaCartShopping } from "react-icons/fa6";
 
-interface HeaderProps {
-  carts: CartItem[];
-  deleteToCart: (value: CartItem) => void;
-  updatePlusCart: (value: CartItem) => void;
-  updateSubtractCart: (value: CartItem) => void;
-}
-
-export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart }: HeaderProps) {
+export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal }: CartHeader) {
   const [open, setOpen] = useState<boolean>(false);
-  const isEmpty: boolean = useMemo(() => carts.length === 0, [carts]) 
-  const cartTotal: number = useMemo(() => 
-    carts.reduce((acc, item) => acc + (item.quantity * item.price), 0), [carts]);  
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">

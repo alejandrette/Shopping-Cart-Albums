@@ -2,7 +2,7 @@ import { Album } from "../types/album";
 
 export const getAlbums = async (): Promise<Album[]> => {
   try {
-    const response = await fetch('/public/albums.json')
+    const response = await fetch('/albums.json')
 
     if (!response.ok) {
       throw new Error(`Failed to fetch albums ${response.status}`)

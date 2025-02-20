@@ -13,7 +13,7 @@ export default function App() {
   const { carts, addToCart, deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal } = useCart()
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header
         carts={carts}
         deleteToCart={deleteToCart}
@@ -23,20 +23,24 @@ export default function App() {
         cartTotal={cartTotal}
       />
       {error && <div className="text-red-500 text-center text-2xl">Error: {error}</div>}
-      <Filters 
-        filters={filters}
-        authorUnique={authorUnique}
-        onAuthorChange={handleAuthorChange}
-        onMaxPriceChange={handleMaxPriceChange}
-      />
-      <AlbumList 
-        albums={filteredAlbums}
-        loading={loading}
-        addToCart={addToCart}
-        deleteToCart={deleteToCart}
-        carts={carts}
-      />
+      
+      <main className="flex-grow">
+        <Filters 
+          filters={filters}
+          authorUnique={authorUnique}
+          onAuthorChange={handleAuthorChange}
+          onMaxPriceChange={handleMaxPriceChange}
+        />
+        <AlbumList 
+          albums={filteredAlbums}
+          loading={loading}
+          addToCart={addToCart}
+          deleteToCart={deleteToCart}
+          carts={carts}
+        />
+      </main>
+
       <Footer />
-    </>
+    </div>
   )
 }

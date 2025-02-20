@@ -8,6 +8,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal }: CartHeader) {
   const [open, setOpen] = useState<boolean>(false);
+  const cartQuantity: number = carts.length
 
   return (
     <header className="w-full h-32 flex flex-row font-poppins p-10 items-center justify-between relative">
@@ -18,6 +19,11 @@ export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart
       <div className="relative z-10 text-3xl pr-5 hover:text-orange-500">
         <button onClick={() => setOpen(!open)}>
           <FaCartShopping />
+          {cartQuantity > 0 && (
+          <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            {cartQuantity}
+          </span>
+        )}
         </button>
       </div>
 
@@ -38,17 +44,26 @@ export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart
                 >
                   <div className="flex items-center">
                     <img src={cart.cover} alt={cart.title} className="w-10" />
-                    <span className="ml-3">{cart.title} - ${cart.price}</span>
+                    <div className="ml-3 flex flex-col">
+                      <span>{cart.title}</span>
+                      <span className="text-gray-500">${cart.price}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center pr-2">
-                    <button onClick={() => updateSubtractCart(cart)} disabled={cart.quantity <= 1}><RiSubtractFill /></button>
-                    <span className="px-1">{cart.quantity}</span>
-                    <button onClick={() => updatePlusCart(cart)}><GoPlus /></button>
+                  <div className="flex items-center">
+                    <div className="flex items-center">
+                      <button onClick={() => updateSubtractCart(cart)} disabled={cart.quantity <= 1}>
+                        <RiSubtractFill />
+                      </button>
+                      <span className="px-1">{cart.quantity}</span>
+                      <button onClick={() => updatePlusCart(cart)}>
+                        <GoPlus />
+                      </button>
+                    </div>
+                    <TiDelete 
+                      className="w-5 text-red-500 cursor-pointer" 
+                      onClick={() => deleteToCart(cart)}  
+                    />
                   </div>
-                  <TiDelete 
-                    className="w-5 text-red-500 cursor-pointer" 
-                    onClick={() => deleteToCart(cart)}  
-                  />
                 </li>
               ))
             )}

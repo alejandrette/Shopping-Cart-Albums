@@ -4,7 +4,7 @@ import { Header } from './components/Header'
 import { Filters } from './components/Filters'
 import { AlbumList } from './components/AlbumList'
 import { Footer } from './components/Footer'
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import { cartReducer, initialState } from './reducers/cart-reducer'
 
 export default function App() {
@@ -12,6 +12,10 @@ export default function App() {
   const { albums, loading, error } = useAlbums()
   const { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique } = useFilters(albums)
   const [state, dispatch] = useReducer(cartReducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart))
+  }, [state.cart])
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -10,8 +10,13 @@ export type AlbumState = {
   cart: Album[]
 }
 
+const localStorageCart = (): Album[] => {
+  const cart = localStorage.getItem('cart')
+  return cart ? JSON.parse(cart) : []
+}
+
 export const initialState: AlbumState = {
-  cart: []
+  cart: localStorageCart()
 }
 
 export const cartReducer = (state: AlbumState = initialState, action: CartActions) => {

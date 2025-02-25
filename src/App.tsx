@@ -5,17 +5,20 @@ import { Filters } from './components/Filters'
 import { AlbumList } from './components/AlbumList'
 import { Footer } from './components/Footer'
 import { useCart } from './hooks/useCart'
+import { useReducer } from 'react'
+import { cartReducer, initialState } from './reducers/cart-reducer'
 
 export default function App() {
 
   const { albums, loading, error } = useAlbums()
   const { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique } = useFilters(albums)
-  const { carts, addToCart, deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal } = useCart()
+  const { deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal } = useCart()
+  const [state, dispatch] = useReducer(cartReducer, initialState)
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header
-        carts={carts}
+        carts={state.cart}
         deleteToCart={deleteToCart}
         updatePlusCart={updatePlusCart}
         updateSubtractCart={updateSubtractCart}
@@ -34,9 +37,9 @@ export default function App() {
         <AlbumList 
           albums={filteredAlbums}
           loading={loading}
-          addToCart={addToCart}
+          dispatch={dispatch}
           deleteToCart={deleteToCart}
-          carts={carts}
+          carts={state.cart}
         />
       </main>
 

@@ -6,7 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { RiSubtractFill } from "react-icons/ri";
 import { FaCartShopping } from "react-icons/fa6";
 
-export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart }: CartHeader) {
+export function Header({ carts, dispatch }: CartHeader) {
   const [open, setOpen] = useState<boolean>(false);
   const cartQuantity: number = carts.length
 
@@ -37,7 +37,7 @@ export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart
             <h3 className="text-lg font-bold mb-3">Shopping Cart</h3>
             <button className="mb-3" onClick={() => setOpen(!open)}><IoMdClose /></button>
           </div>
-          <ul className="max-h-52 overflow-auto">
+          <ul className="max-h-52 overflow-auto scrollbar-hide">
             {isEmpty ? (
               <span>The cart is empty</span>
             ) : (
@@ -55,17 +55,17 @@ export function Header({ carts, deleteToCart, updatePlusCart, updateSubtractCart
                   </div>
                   <div className="flex items-center">
                     <div className="flex items-center">
-                      <button onClick={() => updateSubtractCart(cart)} disabled={cart.quantity <= 1}>
+                      <button onClick={() => dispatch({ type: 'update-subtract-cart', payload: { id: cart['id'] }})} disabled={cart.quantity <= 1}>
                         <RiSubtractFill />
                       </button>
                       <span className="px-1">{cart.quantity}</span>
-                      <button onClick={() => updatePlusCart(cart)}>
+                      <button onClick={() => dispatch({ type: 'update-plus-cart', payload: { id: cart['id'] }})}>
                         <GoPlus />
                       </button>
                     </div>
                     <TiDelete 
                       className="w-5 text-red-500 cursor-pointer" 
-                      onClick={() => deleteToCart(cart)}  
+                      onClick={() => dispatch({ type: 'delete-to-cart', payload: { id: cart["id"] }})}
                     />
                   </div>
                 </li>

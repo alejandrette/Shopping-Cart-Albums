@@ -4,7 +4,6 @@ import { Header } from './components/Header'
 import { Filters } from './components/Filters'
 import { AlbumList } from './components/AlbumList'
 import { Footer } from './components/Footer'
-import { useCart } from './hooks/useCart'
 import { useReducer } from 'react'
 import { cartReducer, initialState } from './reducers/cart-reducer'
 
@@ -12,18 +11,13 @@ export default function App() {
 
   const { albums, loading, error } = useAlbums()
   const { filters, filteredAlbums, handleAuthorChange, handleMaxPriceChange, authorUnique } = useFilters(albums)
-  const { deleteToCart, updatePlusCart, updateSubtractCart, isEmpty, cartTotal } = useCart()
   const [state, dispatch] = useReducer(cartReducer, initialState)
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header
         carts={state.cart}
-        deleteToCart={deleteToCart}
-        updatePlusCart={updatePlusCart}
-        updateSubtractCart={updateSubtractCart}
-        isEmpty={isEmpty}
-        cartTotal={cartTotal}
+        dispatch={dispatch}
       />
       {error && <div className="text-red-500 text-center text-2xl">Error: {error}</div>}
       
@@ -37,9 +31,8 @@ export default function App() {
         <AlbumList 
           albums={filteredAlbums}
           loading={loading}
-          dispatch={dispatch}
-          deleteToCart={deleteToCart}
           carts={state.cart}
+          dispatch={dispatch}
         />
       </main>
 

@@ -7,13 +7,13 @@ interface AlbumListProps {
   albums: Album[];
   loading: boolean;
   dispatch: ActionDispatch<[action: CartActions]>
-  deleteToCart: (value: Album) => void;
+  //deleteToCart: (value: Album) => void;
   carts: Album[];
 }
 
 const ITEMS_PER_PAGE = 6; // Número de álbumes por página
 
-export function AlbumList({ albums, loading, dispatch, deleteToCart, carts }: AlbumListProps) {
+export function AlbumList({ albums, loading, dispatch, carts }: AlbumListProps) {
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -53,7 +53,7 @@ export function AlbumList({ albums, loading, dispatch, deleteToCart, carts }: Al
                           ? (
                             <button 
                               className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-                              onClick={() => deleteToCart(album)}
+                              onClick={() => dispatch({ type: 'delete-to-cart', payload: { id: album["id"] }})}
                             >
                               Delete to cart
                             </button>

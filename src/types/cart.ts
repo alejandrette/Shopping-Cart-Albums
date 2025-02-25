@@ -1,3 +1,6 @@
+import { ActionDispatch } from "react";
+import { CartActions } from "../reducers/cart-reducer";
+
 export interface CartItem {
   id: number;
   title: string;
@@ -8,9 +11,5 @@ export interface CartItem {
 
 export interface CartHeader {
   carts: CartItem[];
-  deleteToCart: (value: CartItem) => void;
-  updatePlusCart: (value: CartItem) => void;
-  updateSubtractCart: (value: CartItem) => void;
-  isEmpty: boolean;
-  cartTotal: number;
+  dispatch: ActionDispatch<[action: CartActions]>
 }
